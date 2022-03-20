@@ -1,5 +1,6 @@
 package com.jccsisc.mylist.fragments.home.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -11,6 +12,7 @@ import com.jccsisc.mylist.fragments.home.model.InvitadoModel
 
 class HomeAdapter : ListAdapter<InvitadoModel, HomeAdapter.HomeViewHolder>(DiffCallbackHome) {
 
+    lateinit var onClickItem: (invitadoModel: InvitadoModel) -> Unit
 
     companion object DiffCallbackHome: DiffUtil.ItemCallback<InvitadoModel>() {
 
@@ -41,9 +43,18 @@ class HomeAdapter : ListAdapter<InvitadoModel, HomeAdapter.HomeViewHolder>(DiffC
                 tvParentezco.text = if (parentezcp == 0) "Familiar" else "Amigo"
                 tvParentezco.setBackgroundResource(if (parentezcp == 0) R.drawable.shape_familiar else R.drawable.shape_amigo)
                 imgRole.setImageResource(if (role == 0) R.drawable.ic_p else R.drawable.ic_i)
+                cbAsistencia.isChecked = asistencia == 1
                 tvNombre.text = nombre
                 tvLocalidad.text = localidad
                 tvTelefono.text = telefono
+            }
+
+            cardInvitados.setOnClickListener {
+                if (::onClickItem.isInitialized) {
+                    onClickItem(invitadoModel)
+                } else {
+                    Log.e("error", "onClickItem no está inicializado")
+                }
             }
 
         }

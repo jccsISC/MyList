@@ -8,6 +8,7 @@ data class InvitadoModel(
     val correo: String = "",
     val parentezcp: Int = -1,
     val role: Int = -1,
+    val asistencia: Int = 0,
     val esPadrinoDe: String = "",
     val invitadoAdicional: Boolean = false,
     val cantInvitadosAdicionales: Int = 0

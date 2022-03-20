@@ -9,5 +9,42 @@
         android:id="@+id/homeFragment"
         tools:layout="@layout/fragment_home"
         android:name="com.jccsisc.mylist.fragments.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_homeFragment_to_graphicsFragment"
+            app:destination="@id/graphicsFragment"
+            app:enterAnim="@anim/slide_in_right_y"
+            app:exitAnim="@anim/slide_out_left_y"
+            app:popEnterAnim="@anim/slide_in_left_y"
+            app:popExitAnim="@anim/slide_out_right_y"/>
+        <action
+            android:id="@+id/action_homeFragment_to_addFragment"
+            app:destination="@id/addFragment"
+            app:enterAnim="@anim/slide_in_left_y"
+            app:exitAnim="@anim/slide_out_right_y"
+            app:popEnterAnim="@anim/slide_in_right_y"
+            app:popExitAnim="@anim/slide_out_left_y"/>
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.jccsisc.mylist.fragments.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.jccsisc.mylist.fragments.add.AddFragment"
+        android:label="fragment_add"
+        tools:layout="@layout/fragment_add" />
+    <fragment
+        android:id="@+id/graphicsFragment"
+        android:name="com.jccsisc.mylist.fragments.graphics.GraphicsFragment"
+        android:label="fragment_graphics"
+        tools:layout="@layout/fragment_graphics" />
 </navigation>
