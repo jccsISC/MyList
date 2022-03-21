@@ -3,6 +3,7 @@ package com.jccsisc.mylist.fragments.home.adapter
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -48,6 +49,8 @@ class HomeAdapter : ListAdapter<InvitadoModel, HomeAdapter.HomeViewHolder>(DiffC
                 tvLocalidad.text = localidad
                 tvTelefono.text = telefono
             }
+
+            cardInvitados.animation = AnimationUtils.loadAnimation(root.context, R.anim.slide_in_left)
 
             cardInvitados.setOnClickListener {
                 if (::onClickItem.isInitialized) {

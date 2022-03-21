@@ -3,4 +3,21 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="lista_de_invitados">Lista de invitados</string>
+    <string name="guardar">Guardar</string>
+    <string name="nombre">Nombre</string>
+    <string name="telefono">Telefono</string>
+    <string name="localidad">Localidad</string>
+    <string name="correo">Correo</string>
+    <string name="parentezco">Parentezco</string>
+    <string name="familiar">Familiar</string>
+    <string name="amigo">Amigo</string>
+    <string name="role">Role</string>
+    <string name="invitado">Invitado</string>
+    <string name="padrino">Padrino</string>
+
+    <string-array name="padrino_de">
+        <item>Alcohol</item>
+        <item>Anillos</item>
+        <item>Misa</item>
+    </string-array>
 </resources>
