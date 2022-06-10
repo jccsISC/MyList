@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_graph"
+    app:startDestination="@id/presentationFragment">
+
+    <fragment
+        android:id="@+id/presentationFragment"
+        tools:layout="@layout/fragment_presentation"
+        android:name="com.jccsisc.mylist.ui.fragments.presentation.PresentationFragment"
+        android:label="PresentationFragment" >
+        <action
+            android:id="@+id/action_presentationFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_presentationFragment_to_signInFragment"
+            app:destination="@id/signInFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        tools:layout="@layout/fragment_login"
+        android:name="com.jccsisc.mylist.ui.fragments.login.LoginFragment"
+        android:label="LoginFragment" />
+    <fragment
+        android:id="@+id/signInFragment"
+        tools:layout="@layout/fragment_sign_in"
+        android:name="com.jccsisc.mylist.ui.fragments.signin.SignInFragment"
+        android:label="SignInFragment" />
+</navigation>

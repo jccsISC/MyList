@@ -9,8 +9,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/green"
-        tools:context=".fragments.graphics.GraphicsFragment">
+        android:background="@color/teal_200"
+        tools:context=".ui.fragments.graphics.GraphicsFragment">
 
         <!-- TODO: Update blank fragment layout -->
         <TextView

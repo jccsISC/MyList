@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/homeFragment"
         tools:layout="@layout/fragment_home"
-        android:name="com.jccsisc.mylist.fragments.home.HomeFragment"
+        android:name="com.jccsisc.mylist.ui.fragments.home.HomeFragment"
         android:label="HomeFragment" >
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
@@ -34,17 +34,17 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.jccsisc.mylist.fragments.detail.DetailFragment"
+        android:name="com.jccsisc.mylist.ui.fragments.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.jccsisc.mylist.fragments.add.AddFragment"
+        android:name="com.jccsisc.mylist.ui.fragments.add.AddFragment"
         android:label="fragment_add"
         tools:layout="@layout/fragment_add" />
     <fragment
         android:id="@+id/graphicsFragment"
-        android:name="com.jccsisc.mylist.fragments.graphics.GraphicsFragment"
+        android:name="com.jccsisc.mylist.ui.fragments.graphics.GraphicsFragment"
         android:label="fragment_graphics"
         tools:layout="@layout/fragment_graphics" />
 </navigation>

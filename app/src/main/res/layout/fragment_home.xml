@@ -7,17 +7,18 @@
 
     </data>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".ui.activities.home.HomeActivity">
 
         <TextView
             android:id="@+id/tvCantidadInvitados"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CT: 70"
-            android:textColor="@color/blue"
+            android:textColor="@color/gold2"
             android:textStyle="bold"
             android:textSize="16sp"
             android:layout_marginStart="20dp"
@@ -31,7 +32,7 @@
             android:layout_height="wrap_content"
             android:text="A: 10"
             android:textStyle="bold"
-            android:textColor="@color/green"
+            android:textColor="@color/gold"
             android:textSize="16sp"
             app:layout_constraintTop_toTopOf="@+id/tvCantidadInvitados"
             app:layout_constraintStart_toEndOf="@+id/tvCantidadInvitados"

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="zc_20sdp">20dp</dimen>
+    <dimen name="zc_15sdp">15dp</dimen>
+    <dimen name="zc_12sdp">12sp</dimen>
+    <dimen name="zc_5sdp">5dp</dimen>
+    <dimen name="zc_50sdp">50dp</dimen>
+    <dimen name="zc_18sdp">18dp</dimen>
+    <dimen name="zc_10sdp">10dp</dimen>
+    <dimen name="corner_6">6dp</dimen>
+    <dimen name="corner_18">18dp</dimen>
+</resources>

@@ -14,6 +14,7 @@
     <string name="role">Role</string>
     <string name="invitado">Invitado</string>
     <string name="padrino">Padrino</string>
+    <string name="table">Mesa</string>
 
     <string-array name="padrino_de">
         <item>Alcohol</item>

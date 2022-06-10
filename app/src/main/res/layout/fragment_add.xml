@@ -63,7 +63,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilNombre"
-                    style="@style/TILStyle1"
+                    style="@style/TILStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -84,7 +84,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilTelefono"
-                    style="@style/TILStyle1"
+                    style="@style/TILStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -106,7 +106,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilLocalidad"
-                    style="@style/TILStyle1"
+                    style="@style/TILStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -128,7 +128,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilCorreo"
-                    style="@style/TILStyle1"
+                    style="@style/TILStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"

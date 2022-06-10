@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/splas1">
+
+        <TextView
+            android:id="@+id/tvJulio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Julio"
+            android:textSize="50sp"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/teal_700"
+            android:textStyle="bold"
+            android:layout_marginBottom="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="y"
+            android:textSize="40sp"
+            android:textColor="@color/teal_700"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:layout_marginBottom="-10dp"
+            app:layout_constraintBottom_toTopOf="@+id/tvJulio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.36"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCarmen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Carmen"
+            android:textSize="40sp"
+            android:textColor="@color/teal_700"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:layout_marginBottom="-10dp"
+            app:layout_constraintBottom_toTopOf="@+id/tvY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.36"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
