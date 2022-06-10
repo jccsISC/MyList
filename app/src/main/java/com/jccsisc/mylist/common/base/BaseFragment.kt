@@ -13,13 +13,13 @@ import com.airbnb.lottie.LottieAnimationView
 import com.jccsisc.mylist.R
 import kotlin.reflect.KClass
 
-abstract class BaseFragment<B: ViewDataBinding, V: ViewModel>(private val vkClass: KClass<V>) : Fragment() {
+abstract class BaseFragment<B: ViewDataBinding> : Fragment() {
 
     lateinit var mBinding: B
 
     lateinit var zpBaseView: BaseView
 
-    val viewModel by lazy { ViewModelProvider(this).get(vkClass.javaObjectType) }
+    //val viewModel by lazy { ViewModelProvider(this).get(vkClass.javaObjectType) }
 
 
     abstract fun getLayout(): Int

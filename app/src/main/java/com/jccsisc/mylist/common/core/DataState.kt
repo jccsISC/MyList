@@ -2,9 +2,8 @@ package com.jccsisc.mylist.common.core
 
 import java.lang.Exception
 
-sealed class DataState<out R> {
+sealed class DataState<out T> {
+    class Loading<out T>: DataState<T>()
     data class Success<out T>(val data: T): DataState<T>()
-    data class Error(val exception: Exception): DataState<Nothing>()
-    object Loading: DataState<Nothing>()
-    object Finished: DataState<Nothing>()
+    data class Failure(val exception: Exception): DataState<Nothing>()
 }

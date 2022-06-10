@@ -1,4 +1,4 @@
-package com.jccsisc.mylist.data.model
+package com.jccsisc.mylist.data.model.invitado
 
 data class InvitadoModel(
     val id: String = "",

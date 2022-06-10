@@ -7,7 +7,7 @@ import com.jccsisc.mylist.common.base.BaseFragment
 import com.jccsisc.mylist.databinding.FragmentPresentationBinding
 import eightbitlab.com.blurview.RenderScriptBlur
 
-class PresentationFragment : BaseFragment<FragmentPresentationBinding, PresentationVM>(PresentationVM::class) {
+class PresentationFragment : BaseFragment<FragmentPresentationBinding>() {
 
     override fun getLayout() = R.layout.fragment_presentation
 

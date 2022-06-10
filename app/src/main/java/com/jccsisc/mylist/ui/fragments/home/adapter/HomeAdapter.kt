@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jccsisc.mylist.R
 import com.jccsisc.mylist.databinding.ItemInvitadosV2Binding
-import com.jccsisc.mylist.data.model.InvitadoModel
+import com.jccsisc.mylist.data.model.invitado.InvitadoModel
 
 class HomeAdapter : ListAdapter<InvitadoModel, HomeAdapter.HomeViewHolder>(DiffCallbackHome) {
 

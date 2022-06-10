@@ -1,14 +1,11 @@
 package com.jccsisc.mylist.ui.fragments.signin
 
-import android.graphics.drawable.Drawable
-import android.view.View
 import com.jccsisc.mylist.R
 import com.jccsisc.mylist.common.base.BaseFragment
 import com.jccsisc.mylist.databinding.FragmentSignInBinding
-import eightbitlab.com.blurview.RenderScriptBlur
 
 
-class SignInFragment : BaseFragment<FragmentSignInBinding, SignInVM>(SignInVM::class) {
+class SignInFragment : BaseFragment<FragmentSignInBinding>() {
 
     override fun getLayout() = R.layout.fragment_sign_in
 
