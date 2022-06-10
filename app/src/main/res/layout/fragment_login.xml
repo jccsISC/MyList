@@ -29,12 +29,13 @@
 
             <com.tistory.zladnrms.roundablelayout.RoundableLayout
                 android:id="@+id/btnBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:clickable="true"
                 android:padding="5dp"
                 android:layout_marginTop="@dimen/zc_20sdp"
                 android:layout_marginStart="@dimen/zc_15sdp"
+                app:backgroundColor="@color/primary_color"
                 android:foreground="?selectableItemBackgroundBorderless"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -44,8 +45,8 @@
                 app:cornerRightBottom="30dp"
                 android:focusable="true">
                 <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/ic_back"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

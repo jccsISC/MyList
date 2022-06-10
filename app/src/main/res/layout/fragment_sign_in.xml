@@ -30,14 +30,15 @@
 
             <com.tistory.zladnrms.roundablelayout.RoundableLayout
                 android:id="@+id/btnBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_marginStart="@dimen/zc_15sdp"
                 android:layout_marginTop="@dimen/zc_20sdp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?selectableItemBackgroundBorderless"
                 android:padding="5dp"
+                app:backgroundColor="@color/primary_color"
                 app:cornerLeftBottom="30dp"
                 app:cornerLeftTop="30dp"
                 app:cornerRightBottom="30dp"
@@ -46,8 +47,8 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/ic_back"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -60,17 +61,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:layout_marginBottom="200dp"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center"
                 android:text="Hola\n Buenas tardes!"
                 android:textColor="@color/primary_color_dark"
                 android:textSize="24sp"
-                app:layout_constraintBottom_toTopOf="@+id/btnLogin"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilName"
@@ -78,15 +76,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/zc_20sdp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="@dimen/zc_20sdp"
-                android:layout_marginBottom="200dp"
                 android:hint="Nombre completo"
-                app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+                app:layout_constraintBottom_toTopOf="@+id/btnSingIn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvSaludo"
-                app:layout_constraintVertical_bias="0.61">
+                app:layout_constraintVertical_bias="0.100000024">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tieName"
@@ -100,16 +97,11 @@
                 style="@style/TILStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/zc_20sdp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="@dimen/zc_20sdp"
-                android:layout_marginBottom="120dp"
+                android:layout_marginTop="16dp"
                 android:hint="Número telefónico"
-                app:layout_constraintBottom_toTopOf="@+id/btnLogin"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tilName"
-                app:layout_constraintVertical_bias="0.41000003">
+                app:layout_constraintEnd_toEndOf="@+id/tilName"
+                app:layout_constraintStart_toStartOf="@+id/tilName"
+                app:layout_constraintTop_toBottomOf="@+id/tilName">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tieNumber"
@@ -123,16 +115,11 @@
                 style="@style/TILStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/zc_20sdp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="@dimen/zc_20sdp"
-                android:layout_marginBottom="70dp"
+                android:layout_marginTop="16dp"
                 android:hint="Correo"
-                app:layout_constraintBottom_toTopOf="@+id/btnLogin"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tilNumber"
-                app:layout_constraintVertical_bias="1.0">
+                app:layout_constraintEnd_toEndOf="@+id/tilNumber"
+                app:layout_constraintStart_toStartOf="@+id/tilNumber"
+                app:layout_constraintTop_toBottomOf="@+id/tilNumber">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tieEmail"
@@ -146,16 +133,14 @@
                 style="@style/TILStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/zc_20sdp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="@dimen/zc_20sdp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 android:hint="Contraseña"
-                app:layout_constraintBottom_toTopOf="@+id/btnLogin"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/btnSingIn"
+                app:layout_constraintEnd_toEndOf="@+id/tilEmail"
+                app:layout_constraintStart_toStartOf="@+id/tilEmail"
                 app:layout_constraintTop_toBottomOf="@+id/tilEmail"
-                app:layout_constraintVertical_bias="0.8"
+                app:layout_constraintVertical_bias="0.0"
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -209,7 +194,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_begin="205dp" />
+                app:layout_constraintGuide_begin="180dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/btnFacebook"
