@@ -28,7 +28,7 @@
         <activity
             android:name=".ui.activities.home.HomeActivity"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

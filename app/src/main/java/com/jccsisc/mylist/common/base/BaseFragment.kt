@@ -36,6 +36,7 @@ abstract class BaseFragment<B: ViewDataBinding> : Fragment() {
             zpBaseView = activity as BaseView
         }
 
+        initObservers()
         initView()
 
         return mBinding.root

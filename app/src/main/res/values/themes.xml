@@ -29,8 +29,18 @@
     </style>
 
     <style name="AnimationDialog.Window" parent="@android:style/Animation.Activity">
-        <item name="android:windowEnterAnimation">@anim/dialog_anim_in</item>
-        <item name="android:windowExitAnimation">@anim/dialog_anim_out</item>
+        <item name="android:windowEnterAnimation">@anim/dialog_anim_in_2</item>
+        <item name="android:windowExitAnimation">@anim/dialog_anim_out_2</item>
+    </style>
+
+    <style name="Theme.MyList.NoActionBarAndStatusBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:fitsSystemWindows">false</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
     <style name="StyleFullScreenDialog">

@@ -7,7 +7,6 @@ import com.jccsisc.mylist.utils.setColorNavBar
 import com.jccsisc.mylist.utils.showView
 
 fun HomeActivity.initElements() = with(mBinding){
-    setColorNavBar(R.color.primary_color)
 
     LambdasObjet.changeTitle = { title, back ->
 

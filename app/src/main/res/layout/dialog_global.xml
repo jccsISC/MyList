@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Aceptar"
-            android:textColor="@color/white"
+            android:textColor="@color/primary_color"
             android:background="@drawable/shape_button_dialog"
             android:textAllCaps="false"
             android:textSize="@dimen/zc_12sdp"

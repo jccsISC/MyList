@@ -35,7 +35,7 @@ class LoaderFDialogFragment(
         bindingDialog = this
 
         if (cancelableDialog) {
-            zpDialogContainer.setOnSingleClickListener {
+            homeContainerView.setOnSingleClickListener {
                 dialog?.dismiss()
             }
         }
@@ -47,7 +47,7 @@ class LoaderFDialogFragment(
         }
 
         zpTvLoading.text = textLoading ?: ""
-        blurBackground(showBlur, radiusBlur)
+       // blurBackground(showBlur, radiusBlur)
 
     }.root
 
@@ -64,7 +64,7 @@ class LoaderFDialogFragment(
         }
     }
 
-    private fun blurBackground(showBlur: Boolean, radius: Float) {
+    /*private fun blurBackground(showBlur: Boolean, radius: Float) {
 
         activity?.let {
             val decorView: View = it.window.decorView
@@ -79,6 +79,6 @@ class LoaderFDialogFragment(
                 .setBlurAutoUpdate(true)
                 .setHasFixedTransformationMatrix(false)
         }
-    }
+    }*/
 
 }

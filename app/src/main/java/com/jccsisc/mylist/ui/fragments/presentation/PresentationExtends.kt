@@ -7,6 +7,8 @@ import com.jccsisc.mylist.utils.setOnSingleClickListener
 fun PresentationFragment.initElements() = with(mBinding) {
     blurBackground(true)
 
+    isUserLoggeIn()
+
     btnLogin.setOnSingleClickListener {
         findNavController().navigate(R.id.action_presentationFragment_to_loginFragment)
     }
