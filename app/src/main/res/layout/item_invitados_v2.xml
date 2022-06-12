@@ -43,7 +43,7 @@
                     app:cornerRightTop="6dp"
                     app:cornerLeftBottom="6dp"
                     app:cornerRightBottom="6dp"
-                    app:backgroundColor="@color/black"
+                    app:backgroundColor="@color/primary_color_dark"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent">

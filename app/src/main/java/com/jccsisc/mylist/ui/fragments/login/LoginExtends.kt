@@ -14,16 +14,7 @@ fun LoginFragment.initElements() = with(mBinding) {
         val correo = tieEmail.text.toString().trim()
         val contra = tiePws.text.toString().trim()
 
-        if (contra.isEmpty()) {
-            tieEmail.error = "El correo está vacío"
-            return@setOnSingleClickListener
-        }
-
-        if (contra.isEmpty()) {
-            tiePws.error = "La contraseña está vacía"
-            return@setOnSingleClickListener
-        }
-
+        if (validCredentials(correo, contra)) return@setOnSingleClickListener
         login(correo, contra)
     }
 }

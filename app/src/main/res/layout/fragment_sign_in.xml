@@ -60,7 +60,7 @@
                 android:id="@+id/tvSaludo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="16dp"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center"
                 android:text="Hola\n Buenas tardes!"
@@ -76,14 +76,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/zc_20sdp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="@dimen/zc_20sdp"
                 android:hint="Nombre completo"
                 app:layout_constraintBottom_toTopOf="@+id/btnSingIn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvSaludo"
-                app:layout_constraintVertical_bias="0.100000024">
+                app:layout_constraintVertical_bias="0.26">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tieName"
@@ -134,17 +134,36 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
                 android:hint="Contraseña"
-                app:layout_constraintBottom_toTopOf="@+id/btnSingIn"
                 app:layout_constraintEnd_toEndOf="@+id/tilEmail"
                 app:layout_constraintStart_toStartOf="@+id/tilEmail"
                 app:layout_constraintTop_toBottomOf="@+id/tilEmail"
-                app:layout_constraintVertical_bias="0.0"
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tiePws"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPwsConfirm"
+                style="@style/TILStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:hint="Confirmar contraseña"
+                app:layout_constraintBottom_toTopOf="@+id/btnSingIn"
+                app:layout_constraintEnd_toEndOf="@+id/tilEmail"
+                app:layout_constraintStart_toStartOf="@+id/tilEmail"
+                app:layout_constraintTop_toBottomOf="@+id/tilPws"
+                app:layout_constraintVertical_bias="0.0"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tiePwsConfirm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword" />
@@ -157,10 +176,10 @@
                 android:layout_height="60dp"
                 android:layout_marginStart="60dp"
                 android:layout_marginEnd="60dp"
-                android:layout_marginBottom="112dp"
+                android:layout_marginBottom="16dp"
                 android:text="Sign In"
                 android:textAllCaps="false"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/btnGoogle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -175,8 +194,8 @@
                 android:focusable="true"
                 android:foreground="?selectableItemBackgroundBorderless"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintHorizontal_bias="0.91"
+                app:layout_constraintEnd_toStartOf="@+id/btnFacebook"
+                app:layout_constraintHorizontal_bias="0.88"
                 app:layout_constraintStart_toStartOf="parent">
 
                 <ImageView
@@ -189,12 +208,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="180dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/btnFacebook"
@@ -207,8 +220,8 @@
                 android:foreground="?selectableItemBackgroundBorderless"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.09"
-                app:layout_constraintStart_toStartOf="@+id/guideline2">
+                app:layout_constraintHorizontal_bias="0.54"
+                app:layout_constraintStart_toStartOf="@+id/btnSingIn">
 
                 <ImageView
                     android:layout_width="30dp"

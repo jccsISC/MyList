@@ -16,6 +16,10 @@
     <string name="padrino">Padrino</string>
     <string name="table">Mesa</string>
 
+    <string name="total_invitados">Total nvitados: %s</string>
+    <string name="num_invitados_presentes">Llegaron: %s</string>
+    <string name="num_invitados_faltantes">Faltan: %s</string>
+
     <string-array name="padrino_de">
         <item>Alcohol</item>
         <item>Anillos</item>

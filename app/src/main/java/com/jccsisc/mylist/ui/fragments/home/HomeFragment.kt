@@ -3,11 +3,8 @@ package com.jccsisc.mylist.ui.fragments.home
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.jccsisc.mylist.R
 import com.jccsisc.mylist.common.base.BaseFragment
-import com.jccsisc.mylist.common.constants.MyConstant.DB_INVITADOS
-import com.jccsisc.mylist.common.core.DataState
 import com.jccsisc.mylist.databinding.FragmentHomeBinding
 import com.jccsisc.mylist.ui.fragments.home.adapter.HomeAdapter
 import com.jccsisc.mylist.data.model.invitado.InvitadoModel
@@ -17,8 +14,6 @@ import com.jccsisc.mylist.presentation.home.HomeVM
 import com.jccsisc.mylist.presentation.home.HomeVMFactory
 import com.jccsisc.mylist.ui.activities.login.LoginActivity
 import com.jccsisc.mylist.utils.goToActivity
-import com.jccsisc.mylist.utils.showToast
-import com.jccsisc.mylist.utils.showView
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 

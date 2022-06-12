@@ -1,9 +1,8 @@
 package com.jccsisc.mylist.ui.fragments.home
 
 import android.widget.SearchView
-import androidx.navigation.fragment.findNavController
 import com.jccsisc.mylist.R
-import com.jccsisc.mylist.common.core.DataState
+import com.jccsisc.mylist.common.core.MyResult
 import com.jccsisc.mylist.utils.LambdasObjet.changeTitle
 import com.jccsisc.mylist.utils.setColorNavBar
 import com.jccsisc.mylist.utils.setOnSingleClickListener
@@ -19,7 +18,8 @@ fun HomeFragment.initElements() = with(mBinding) {
 
     changeTitle(getString(R.string.lista_de_invitados), false)
 
-    //initRV(list)
+    tvAsistiran.text = getString(R.string.num_invitados_presentes, "1")
+    tvNoAsistiran.text = getString(R.string.num_invitados_faltantes, "1")
 
     tvNoAsistiran.setOnSingleClickListener {
         closeSesion()
@@ -61,16 +61,17 @@ fun HomeFragment.initElements() = with(mBinding) {
 fun HomeFragment.initObserversHome() = with(mBinding) {
     viewModel.fetchInvitadosList().observe(viewLifecycleOwner) { result ->
         when (result) {
-            is DataState.Loading -> showProgress()
-            is DataState.Success -> {
+            is MyResult.Loading -> showProgress()
+            is MyResult.Success -> {
                 hideProgressBarCustom()
                 refresh.showView()
                 tvEmpty.showView(false)
                 list.clear()
                 list.addAll(result.data)
+                tvCantidadInvitados.text = getString(R.string.total_invitados, list.size.toString())
                 initRV(list)
             }
-            is DataState.Failure -> {
+            is MyResult.Failure -> {
                 hideProgressBarCustom()
                 tvEmpty.showView(false)
                 showToast("Ocurrió un problema: ${result.exception}")
