@@ -18,9 +18,6 @@ fun HomeFragment.initElements() = with(mBinding) {
 
     changeTitle(getString(R.string.lista_de_invitados), false)
 
-    tvAsistiran.text = getString(R.string.num_invitados_presentes, "1")
-    tvNoAsistiran.text = getString(R.string.num_invitados_faltantes, "1")
-
     tvNoAsistiran.setOnSingleClickListener {
         closeSesion()
     }
@@ -69,6 +66,11 @@ fun HomeFragment.initObserversHome() = with(mBinding) {
                 list.clear()
                 list.addAll(result.data)
                 tvCantidadInvitados.text = getString(R.string.total_invitados, list.size.toString())
+
+                val asistencia = list.filter { it.asistencia }
+                tvAsistiran.text = getString(R.string.num_invitados_presentes, asistencia.size.toString())
+                val faltantes = list.size - asistencia.size
+                tvNoAsistiran.text = getString(R.string.num_invitados_faltantes, faltantes.toString())
                 initRV(list)
             }
             is MyResult.Failure -> {

@@ -21,6 +21,7 @@ fun AddFragment.initElements() {
 
         viewModel.progreso.observe(viewLifecycleOwner) {
             tvProgreso.text = "$it%"
+            progressCircular.progress = it
         }
 
         rgParentezco.setOnCheckedChangeListener { _, i ->
@@ -29,6 +30,7 @@ fun AddFragment.initElements() {
             } else {
                 1
             }
+            viewModel.setPorcentaje(10)
         }
 
         val spPadrinoDe = resources.getStringArray(R.array.padrino_de)
@@ -47,6 +49,7 @@ fun AddFragment.initElements() {
                 tilOpciones.showView(false)
                 1
             }
+            viewModel.setPorcentaje(10)
         }
 
         val spNumeroMesa = resources.getStringArray(R.array.numero_mesas)
@@ -64,21 +67,10 @@ fun AddFragment.initElements() {
             val localidad = tieLocalidad.text.toString()
             val correo = tieCorreo.text.toString()
 
-            if (validData(
-                    nombre,
-                    telefono,
-                    localidad,
-                    correo,
+            if (validData(nombre, telefono, localidad, correo,
                     (!rbFamilia.isChecked && !rbAmigo.isChecked),
-                    (!rbPadrino.isChecked && !rbInvitado.isChecked)
-                )
+                    (!rbPadrino.isChecked && !rbInvitado.isChecked))
             ) return@setOnClickListener
-
-
-            if (progreso <= 90) {
-                progreso += 10
-                viewModel.setPorcentaje(progreso)
-            }
 
             if (padrinoDe.isNullOrEmpty() && rbPadrino.isChecked) {
                 showToast("Selecciona de qué es padrino $nombre")
@@ -101,7 +93,7 @@ fun AddFragment.initElements() {
                 correo,
                 parentezco,
                 role,
-                0,
+                false,
                 padrinoDe,
                 false,
                 0

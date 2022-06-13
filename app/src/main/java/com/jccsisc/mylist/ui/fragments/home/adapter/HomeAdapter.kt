@@ -45,7 +45,7 @@ class HomeAdapter : ListAdapter<InvitadoModel, HomeAdapter.HomeViewHolder>(DiffC
                 //tvParentezco.setBackgroundResource(if (parentezcp == 0) R.drawable.shape_familiar else R.drawable.shape_amigo)
                 //imgRole.setImageResource(if (role == 0) R.drawable.ic_p else R.drawable.ic_i)
                 tvNumMesa.text = invitadoModel.numeroMesa
-                cbAsistencia.isChecked = asistencia == 1
+                cbAsistencia.isChecked = asistencia
                 tvNombre.text = nombre
                 tvAcompanantes.text = "Juan Francisco Rodriguez\nLuis Rodriguez\nMamá de Juan"
                 tvAcompanantes2.text = "Papá de Juan\nTía de Juan\nMari esposa Juan"

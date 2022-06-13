@@ -17,10 +17,15 @@ class AddViewModel(private val addRepo: AddRepo) : ViewModel() {
         resetPorcentaje()
     }
 
+    var valor = 0
+
     private fun resetPorcentaje() =  _progreso.value
 
     fun setPorcentaje(porcentaje: Int) {
-        _progreso.value = porcentaje
+        if (valor <= 90) {
+            valor += porcentaje
+        }
+        _progreso.value = valor
     }
 
     fun addInviadoVM(invitadoModel: InvitadoModel) = liveData(Dispatchers.IO) {

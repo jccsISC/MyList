@@ -2,8 +2,6 @@ package com.jccsisc.mylist.ui.fragments.add
 
 import android.view.View
 import android.widget.AdapterView
-import android.widget.RadioButton
-import android.widget.RadioGroup
 import androidx.fragment.app.viewModels
 import com.jccsisc.mylist.R
 import com.jccsisc.mylist.common.base.BaseFragment
@@ -13,11 +11,9 @@ import com.jccsisc.mylist.domain.add.AddRepoImpl
 import com.jccsisc.mylist.presentation.add.AddVMFactory
 import com.jccsisc.mylist.presentation.add.AddViewModel
 import com.jccsisc.mylist.utils.showToast
-import com.jccsisc.mylist.utils.showView
 
-class AddFragment : BaseFragment<FragmentAddBinding>(), AdapterView.OnItemClickListener, RadioGroup.OnCheckedChangeListener {
+class AddFragment : BaseFragment<FragmentAddBinding>(), AdapterView.OnItemClickListener {
 
-    var progreso = 0
     var padrinoDe = ""
     var numeroMesa = ""
     var parentezco = 0
@@ -41,7 +37,6 @@ class AddFragment : BaseFragment<FragmentAddBinding>(), AdapterView.OnItemClickL
         } else {
             padrinoDe = item
         }
-
     }
 
     fun validData(name: String, num: String, localidad: String, email: String, parentezco: Boolean, role: Boolean): Boolean {
@@ -72,17 +67,5 @@ class AddFragment : BaseFragment<FragmentAddBinding>(), AdapterView.OnItemClickL
         }
 
         return false
-    }
-
-    override fun onCheckedChanged(radioGroup: RadioGroup?, radioButton: Int) = with(mBinding) {
-        when(radioButton) {
-            rbFamilia.id -> showToast("RadioButton: $radioButton")
-            rbAmigo.id -> showToast("RadioButton: $radioButton")
-            rbPadrino.id -> {
-                showToast("RadioButton: $radioButton")
-                tilOpciones.showView()
-            }
-            rbInvitado.id -> showToast("RadioButton: $radioButton")
-        }
     }
 }
