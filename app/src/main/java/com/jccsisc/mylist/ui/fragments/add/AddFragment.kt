@@ -1,32 +1,71 @@
 package com.jccsisc.mylist.ui.fragments.add
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.AdapterView
 import androidx.fragment.app.viewModels
 import com.jccsisc.mylist.R
+import com.jccsisc.mylist.common.base.BaseFragment
+import com.jccsisc.mylist.data.remote.add.AddDataSource
 import com.jccsisc.mylist.databinding.FragmentAddBinding
+import com.jccsisc.mylist.domain.add.AddRepoImpl
+import com.jccsisc.mylist.presentation.add.AddVMFactory
+import com.jccsisc.mylist.presentation.add.AddViewModel
 import com.jccsisc.mylist.utils.showToast
 
-class AddFragment : Fragment(R.layout.fragment_add), AdapterView.OnItemClickListener {
+class AddFragment : BaseFragment<FragmentAddBinding>(), AdapterView.OnItemClickListener {
 
-    lateinit var mBinding: FragmentAddBinding
     var progreso = 0
+    var padrinoDe = ""
+    var numeroMesa = ""
 
-    val viewModel by viewModels<AddViewModel>()
+    val viewModel by viewModels<AddViewModel> {
+        AddVMFactory(AddRepoImpl(AddDataSource()))
+    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        mBinding = FragmentAddBinding.bind(view)
-        super.onViewCreated(mBinding.root, savedInstanceState)
+    override fun getLayout() = R.layout.fragment_add
 
-        initObserversAdd()
+    override fun initView() {
         initElements()
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         val item = parent?.getItemAtPosition(position).toString()
 
-        showToast("CLICK: $item")
+        if (parent?.adapter?.count!! >= 10) {
+            numeroMesa = item.substring(7, item.length)
+        } else {
+            padrinoDe = item
+        }
+
+    }
+
+    fun validData(name: String, num: String, localidad: String, email: String, parentezco: Boolean, role: Boolean): Boolean {
+        with(mBinding) {
+
+            if (name.isEmpty()) {
+                tieNombre.error = "El nombre está vacío"; return true
+            }
+            /*if (num.isEmpty()) {
+                tieTelefono.error = "El número está vacío"; return true
+            }*/
+            /*if (localidad.isEmpty()) {
+                tieLocalidad.error = "La localidad está vacía"; return true
+            }*/
+            /*if (email.isEmpty()) {
+                tieCorreo.error = "El correo está vacío"; return true
+            }*/
+
+            if (parentezco) {
+                showToast("Selecciona un parentezco")
+                return true
+            }
+
+            if (role) {
+                showToast("Selecciona un role")
+                return true
+            }
+        }
+
+        return false
     }
 }

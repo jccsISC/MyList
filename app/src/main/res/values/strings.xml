@@ -16,7 +16,7 @@
     <string name="padrino">Padrino</string>
     <string name="table">Mesa</string>
 
-    <string name="total_invitados">Total nvitados: %s</string>
+    <string name="total_invitados">Total Invitados: %s</string>
     <string name="num_invitados_presentes">Llegaron: %s</string>
     <string name="num_invitados_faltantes">Faltan: %s</string>
 
@@ -24,5 +24,29 @@
         <item>Alcohol</item>
         <item>Anillos</item>
         <item>Misa</item>
+    </string-array>
+
+    <string-array name="numero_mesas">
+        <item>Número 1</item>
+        <item>Número 2</item>
+        <item>Número 3</item>
+        <item>Número 4</item>
+        <item>Número 5</item>
+        <item>Número 6</item>
+        <item>Número 7</item>
+        <item>Número 8</item>
+        <item>Número 9</item>
+        <item>Número 10</item>
+        <item>Número 11</item>
+        <item>Número 12</item>
+        <item>Número 13</item>
+        <item>Número 14</item>
+        <item>Número 15</item>
+        <item>Número 16</item>
+        <item>Número 17</item>
+        <item>Número 18</item>
+        <item>Número 19</item>
+        <item>Número 20</item>
+        <item>Número 21</item>
     </string-array>
 </resources>

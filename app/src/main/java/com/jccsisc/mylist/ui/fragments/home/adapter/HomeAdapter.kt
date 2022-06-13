@@ -47,8 +47,8 @@ class HomeAdapter : ListAdapter<InvitadoModel, HomeAdapter.HomeViewHolder>(DiffC
                 tvNumMesa.text = invitadoModel.numeroMesa
                 cbAsistencia.isChecked = asistencia == 1
                 tvNombre.text = nombre
-                tvLocalidad.text = localidad
-                tvTelefono.text = telefono
+                tvAcompanantes.text = "Juan Francisco Rodriguez\nLuis Rodriguez\nMamá de Juan"
+                tvAcompanantes2.text = "Papá de Juan\nTía de Juan\nMari esposa Juan"
             }
 
             cardInvitados.animation = AnimationUtils.loadAnimation(root.context, R.anim.slide_in_left)

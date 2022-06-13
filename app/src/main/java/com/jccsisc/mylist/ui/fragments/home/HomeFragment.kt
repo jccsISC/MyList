@@ -38,7 +38,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     fun initRV(list:List<InvitadoModel>) = with(mBinding) {
         adapter = HomeAdapter()
         rvTotalInvitados.adapter = adapter
-        adapter.submitList(list)
+        adapter.submitList(list.sortedBy { it.nombre })
 
         adapter.onClickItem = {
             findNavController().navigate(R.id.action_homeFragment_to_detailFragment)
