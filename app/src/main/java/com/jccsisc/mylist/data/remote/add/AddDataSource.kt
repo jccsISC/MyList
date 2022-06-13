@@ -7,10 +7,11 @@ import kotlinx.coroutines.tasks.await
 
 class AddDataSource {
     suspend fun addInvitado(invitadoModel: InvitadoModel) {
-       FirebaseFirestore
+        FirebaseFirestore
             .getInstance()
             .collection(DB_INVITADOS)
-            .add(invitadoModel)
+            .document(invitadoModel.id)
+            .set(invitadoModel)
             .await()
     }
 }

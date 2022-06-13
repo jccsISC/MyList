@@ -65,12 +65,15 @@ fun HomeFragment.initObserversHome() = with(mBinding) {
                 tvEmpty.showView(false)
                 list.clear()
                 list.addAll(result.data)
+
                 tvCantidadInvitados.text = getString(R.string.total_invitados, list.size.toString())
 
                 val asistencia = list.filter { it.asistencia }
                 tvAsistiran.text = getString(R.string.num_invitados_presentes, asistencia.size.toString())
+
                 val faltantes = list.size - asistencia.size
                 tvNoAsistiran.text = getString(R.string.num_invitados_faltantes, faltantes.toString())
+
                 initRV(list)
             }
             is MyResult.Failure -> {

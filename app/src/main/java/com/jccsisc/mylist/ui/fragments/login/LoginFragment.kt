@@ -49,9 +49,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     fun login(email: String, password: String) = with(mBinding) {
         viewModel.loginVM(email, password).observe(viewLifecycleOwner) { result ->
             when(result) {
-                is MyResult.Loading -> {
-                    showProgress()
-                }
+                is MyResult.Loading -> showProgress()
                 is MyResult.Success -> {
                     hideProgressBarCustom()
                     Log.d("data", "${result.data}")

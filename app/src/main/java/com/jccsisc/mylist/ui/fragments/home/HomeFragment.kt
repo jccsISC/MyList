@@ -5,15 +5,17 @@ import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.jccsisc.mylist.R
 import com.jccsisc.mylist.common.base.BaseFragment
-import com.jccsisc.mylist.databinding.FragmentHomeBinding
-import com.jccsisc.mylist.ui.fragments.home.adapter.HomeAdapter
+import com.jccsisc.mylist.common.core.MyResult
 import com.jccsisc.mylist.data.model.invitado.InvitadoModel
 import com.jccsisc.mylist.data.remote.home.HomeDataSource
+import com.jccsisc.mylist.databinding.FragmentHomeBinding
 import com.jccsisc.mylist.domain.home.HomeRepoImpl
 import com.jccsisc.mylist.presentation.home.HomeVM
 import com.jccsisc.mylist.presentation.home.HomeVMFactory
 import com.jccsisc.mylist.ui.activities.login.LoginActivity
+import com.jccsisc.mylist.ui.fragments.home.adapter.HomeAdapter
 import com.jccsisc.mylist.utils.goToActivity
+import com.jccsisc.mylist.utils.showToast
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
@@ -42,6 +44,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
         adapter.onClickItem = {
             findNavController().navigate(R.id.action_homeFragment_to_detailFragment)
+        }
+
+        adapter.onAsistenciaClickListener = {
+               viewModel.registerAsistencia(it).observe(viewLifecycleOwner) { result->
+                   when (result) {
+                       is MyResult.Success -> {
+                           viewModel.fetchInvitadosList()
+                       }
+                       is MyResult.Failure -> {
+                           showToast("Ocurrió un problema: ${result.exception}")
+                       }
+                   }
+               }
         }
     }
 

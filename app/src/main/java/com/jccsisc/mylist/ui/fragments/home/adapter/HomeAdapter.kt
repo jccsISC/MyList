@@ -10,10 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.jccsisc.mylist.R
 import com.jccsisc.mylist.databinding.ItemInvitadosV2Binding
 import com.jccsisc.mylist.data.model.invitado.InvitadoModel
+import com.jccsisc.mylist.utils.setOnSingleClickListener
 
 class HomeAdapter : ListAdapter<InvitadoModel, HomeAdapter.HomeViewHolder>(DiffCallbackHome) {
 
     lateinit var onClickItem: (invitadoModel: InvitadoModel) -> Unit
+    lateinit var onAsistenciaClickListener: (asitenciaModel: InvitadoModel) -> Unit
 
     companion object DiffCallbackHome: DiffUtil.ItemCallback<InvitadoModel>() {
 
@@ -56,6 +58,15 @@ class HomeAdapter : ListAdapter<InvitadoModel, HomeAdapter.HomeViewHolder>(DiffC
             cardInvitados.setOnClickListener {
                 if (::onClickItem.isInitialized) {
                     onClickItem(invitadoModel)
+                } else {
+                    Log.e("error", "onClickItem no está inicializado")
+                }
+            }
+
+            cbAsistencia.setOnSingleClickListener {
+                if (::onAsistenciaClickListener.isInitialized) {
+                    invitadoModel.asistencia = cbAsistencia.isChecked
+                    onAsistenciaClickListener(invitadoModel)
                 } else {
                     Log.e("error", "onClickItem no está inicializado")
                 }

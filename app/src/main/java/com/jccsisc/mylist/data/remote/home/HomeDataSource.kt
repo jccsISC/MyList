@@ -9,7 +9,8 @@ import kotlinx.coroutines.tasks.await
 class HomeDataSource {
     suspend fun getInvitadosList(): MyResult<List<InvitadoModel>> {
         val invitadoList = mutableListOf<InvitadoModel>()
-        val querySnapshot = FirebaseFirestore.getInstance().collection(DB_INVITADOS).get().await()
+        val querySnapshot = FirebaseFirestore.getInstance().collection(DB_INVITADOS)
+            .orderBy("nombre").get().await()
 
         for (invitado in querySnapshot.documents) {
             invitado.toObject(InvitadoModel::class.java)?.let {
@@ -18,5 +19,14 @@ class HomeDataSource {
         }
 
         return MyResult.Success(invitadoList)
+    }
+
+    suspend fun registerAsistencia(invitadoModel: InvitadoModel) {
+        FirebaseFirestore
+            .getInstance()
+            .collection(DB_INVITADOS)
+            .document(invitadoModel.id)
+            .set(invitadoModel)
+            .await()
     }
 }
