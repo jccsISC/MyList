@@ -23,7 +23,11 @@
     <string-array name="padrino_de">
         <item>Alcohol</item>
         <item>Anillos</item>
+        <item>Brindis</item>
         <item>Misa</item>
+        <item>Lazo</item>
+        <item>Traje</item>
+        <item>Luna de miel</item>
     </string-array>
 
     <string-array name="numero_mesas">

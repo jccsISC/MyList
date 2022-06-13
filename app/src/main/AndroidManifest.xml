@@ -6,9 +6,9 @@
 
     <application
         android:name=".common.di.DHApplication"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_jc"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_jc_round"
         android:theme="@style/Theme.MyList">
         <activity
             android:name=".ui.activities.splash.SplashActivity"

@@ -23,12 +23,30 @@ fun AddFragment.initElements() {
             tvProgreso.text = "$it%"
         }
 
+        rgParentezco.setOnCheckedChangeListener { _, i ->
+            parentezco = if (i == rbFamilia.id) {
+                0
+            } else {
+                1
+            }
+        }
+
         val spPadrinoDe = resources.getStringArray(R.array.padrino_de)
         val adapterPadrinos = ArrayAdapter(requireContext(), R.layout.item_list_padrinos, spPadrinoDe)
 
         spOpciones.apply {
             setAdapter(adapterPadrinos)
             onItemClickListener = this@initElements
+        }
+
+        rgRole.setOnCheckedChangeListener { _, i ->
+            role = if (i == rbPadrino.id) {
+                tilOpciones.showView()
+                0
+            } else {
+                tilOpciones.showView(false)
+                1
+            }
         }
 
         val spNumeroMesa = resources.getStringArray(R.array.numero_mesas)
@@ -62,11 +80,18 @@ fun AddFragment.initElements() {
                 viewModel.setPorcentaje(progreso)
             }
 
-
-            var collecPadrino = ""
-            if (rbPadrino.isChecked) {
-                collecPadrino = padrinoDe
+            if (padrinoDe.isNullOrEmpty() && rbPadrino.isChecked) {
+                showToast("Selecciona de qué es padrino $nombre")
+                return@setOnClickListener
+            } else {
+                padrinoDe = ""
             }
+
+            if (numeroMesa.isNullOrEmpty()) {
+                showToast("Selecciona un número de mesa para $nombre")
+                return@setOnClickListener
+            }
+
             val invitadoModel = InvitadoModel(
                 UUID.randomUUID().toString(),
                 nombre,
@@ -74,10 +99,10 @@ fun AddFragment.initElements() {
                 localidad,
                 numeroMesa,
                 correo,
+                parentezco,
+                role,
                 0,
-                1,
-                0,
-                collecPadrino,
+                padrinoDe,
                 false,
                 0
             )
