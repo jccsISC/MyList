@@ -110,13 +110,18 @@
 
                 <TextView
                     android:id="@+id/tvAcompanantes"
-                    android:layout_width="wrap_content"
+                    android:layout_width="162dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:autoSizeTextType="uniform"
+                    android:textSize="12sp"
+                    android:ellipsize="end"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/view"
                     app:layout_constraintStart_toStartOf="@+id/tvNombre"
                     app:layout_constraintTop_toBottomOf="@+id/tvAcompanado"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:text="Juan Francisco Rodriguez\nLuis Rodriguez\nMamá de Juan" />
+                    tools:text="Juan Francisco Rodriguez Beltran\nLuis Rodriguez\nMamá de Juan" />
                 <View
                     android:id="@+id/view"
                     android:layout_width="1dp"
@@ -131,15 +136,17 @@
                     android:id="@+id/tvAcompanantes2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:textSize="12sp"
                     android:layout_marginStart="2dp"
-                    android:ellipsize="end"
+                    android:layout_marginEnd="3dp"
                     android:autoSizeTextType="uniform"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:ellipsize="end"
                     app:layout_constraintBottom_toBottomOf="@+id/tvAcompanantes"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@id/view"
                     app:layout_constraintTop_toTopOf="@+id/tvAcompanantes"
-                    tools:text="Papá de Juan\nTía de Juan\nMari esposa Juan" />
+                    tools:text="Papá de Juan Francisco Rodriguez Beltran\nTía de Juan\nMari esposa Juan" />
 
                 <CheckBox
                     android:id="@+id/cbAsistencia"

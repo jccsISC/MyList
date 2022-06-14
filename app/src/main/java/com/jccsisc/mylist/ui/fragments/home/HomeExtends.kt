@@ -35,7 +35,7 @@ fun HomeFragment.initElements() = with(mBinding) {
                 val search = nextText.lowercase(Locale.ROOT)
 
                 list.forEach {
-                    if (it.nombre.lowercase(Locale.ROOT).contains(search)) {
+                    if (it.nombre.lowercase(Locale.ROOT).contains(search) || it.numeroMesa.contains(search)) {
                         listAux.add(it)
                     }
                 }
@@ -46,6 +46,7 @@ fun HomeFragment.initElements() = with(mBinding) {
                 listAux.clear()
                 listAux.addAll(list)
                 initRV(listAux)
+                tvEmpty.showView(listAux.size == 0)
             }
 
             return true

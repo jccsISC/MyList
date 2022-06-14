@@ -31,15 +31,15 @@
     </string-array>
 
     <string-array name="numero_mesas">
-        <item>Número 1</item>
-        <item>Número 2</item>
-        <item>Número 3</item>
-        <item>Número 4</item>
-        <item>Número 5</item>
-        <item>Número 6</item>
-        <item>Número 7</item>
-        <item>Número 8</item>
-        <item>Número 9</item>
+        <item>Número 01</item>
+        <item>Número 02</item>
+        <item>Número 03</item>
+        <item>Número 04</item>
+        <item>Número 05</item>
+        <item>Número 06</item>
+        <item>Número 07</item>
+        <item>Número 08</item>
+        <item>Número 09</item>
         <item>Número 10</item>
         <item>Número 11</item>
         <item>Número 12</item>

@@ -38,7 +38,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     fun initRV(list:List<InvitadoModel>) = with(mBinding) {
-        adapter = HomeAdapter()
+        adapter = HomeAdapter(list)
         rvTotalInvitados.adapter = adapter
         adapter.submitList(list.sortedBy { it.nombre })
 

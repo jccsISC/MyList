@@ -12,12 +12,13 @@ import com.jccsisc.mylist.databinding.ItemInvitadosV2Binding
 import com.jccsisc.mylist.data.model.invitado.InvitadoModel
 import com.jccsisc.mylist.utils.setOnSingleClickListener
 
-class HomeAdapter : ListAdapter<InvitadoModel, HomeAdapter.HomeViewHolder>(DiffCallbackHome) {
+class HomeAdapter(private val listInvitados: List<InvitadoModel>? = null) :
+    ListAdapter<InvitadoModel, HomeAdapter.HomeViewHolder>(DiffCallbackHome) {
 
     lateinit var onClickItem: (invitadoModel: InvitadoModel) -> Unit
     lateinit var onAsistenciaClickListener: (asitenciaModel: InvitadoModel) -> Unit
 
-    companion object DiffCallbackHome: DiffUtil.ItemCallback<InvitadoModel>() {
+    companion object DiffCallbackHome : DiffUtil.ItemCallback<InvitadoModel>() {
 
         override fun areItemsTheSame(oldItem: InvitadoModel, newItem: InvitadoModel): Boolean {
             return oldItem.id == newItem.id
@@ -29,7 +30,8 @@ class HomeAdapter : ListAdapter<InvitadoModel, HomeAdapter.HomeViewHolder>(DiffC
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
-        val mBinding = ItemInvitadosV2Binding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val mBinding =
+            ItemInvitadosV2Binding.inflate(LayoutInflater.from(parent.context), parent, false)
         return HomeViewHolder(mBinding)
     }
 
@@ -39,21 +41,40 @@ class HomeAdapter : ListAdapter<InvitadoModel, HomeAdapter.HomeViewHolder>(DiffC
     }
 
 
-    inner class  HomeViewHolder(private val mBinding: ItemInvitadosV2Binding): RecyclerView.ViewHolder(mBinding.root) {
+    inner class HomeViewHolder(private val mBinding: ItemInvitadosV2Binding) :
+        RecyclerView.ViewHolder(mBinding.root) {
         fun bind(invitadoModel: InvitadoModel) = with(mBinding) {
 
             invitadoModel.apply {
                 //tvParentezco.text = if (parentezcp == 0) "Familiar" else "Amigo"
                 //tvParentezco.setBackgroundResource(if (parentezcp == 0) R.drawable.shape_familiar else R.drawable.shape_amigo)
                 //imgRole.setImageResource(if (role == 0) R.drawable.ic_p else R.drawable.ic_i)
-                tvNumMesa.text = invitadoModel.numeroMesa
+                tvNumMesa.text = numeroMesa
                 cbAsistencia.isChecked = asistencia
                 tvNombre.text = nombre
-                tvAcompanantes.text = "Juan Francisco Rodriguez\nLuis Rodriguez\nMamá de Juan"
-                tvAcompanantes2.text = "Papá de Juan\nTía de Juan\nMari esposa Juan"
+
+                val listAc =
+                    listInvitados?.filter { it.nombre != nombre && it.numeroMesa == numeroMesa }
+                var primer = ""
+                var segundo = ""
+                listAc?.let { lista ->
+                    for ((index, invitado) in lista.withIndex()) {
+
+                        val nombre = invitado.nombre.split(" ")
+
+                        if (index <= 3) {
+                            primer += "${nombre[0]} ${nombre[1]}\n"
+                        } else {
+                            segundo += "${nombre[0]} ${nombre[1]}\n"
+                        }
+                    }
+                }
+                tvAcompanantes.text = primer
+                tvAcompanantes2.text = segundo
             }
 
-            cardInvitados.animation = AnimationUtils.loadAnimation(root.context, R.anim.slide_in_left)
+            cardInvitados.animation =
+                AnimationUtils.loadAnimation(root.context, R.anim.slide_in_left)
 
             cardInvitados.setOnClickListener {
                 if (::onClickItem.isInitialized) {

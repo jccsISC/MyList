@@ -17,7 +17,7 @@
             android:id="@+id/tvCantidadInvitados"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CT: 70"
+            tools:text="CT: 70"
             android:textColor="@color/gold2"
             android:textStyle="bold"
             android:textSize="16sp"
@@ -30,7 +30,7 @@
             android:id="@+id/tvAsistiran"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="A: 10"
+            tools:text="A: 10"
             android:textStyle="bold"
             android:textColor="@color/gold"
             android:textSize="16sp"
@@ -42,7 +42,7 @@
             android:id="@+id/tvNoAsistiran"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="NA: 0"
+            tools:text="NA: 0"
             android:textStyle="bold"
             android:textColor="@color/red"
             android:textSize="16sp"
@@ -94,12 +94,14 @@
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-        <TextView
+        <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/tvEmpty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lista vacía"
             android:visibility="gone"
+            app:lottie_rawRes="@raw/no_results"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
