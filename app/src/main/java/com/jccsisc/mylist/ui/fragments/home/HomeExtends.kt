@@ -34,7 +34,7 @@ fun HomeFragment.initElements() = with(mBinding) {
 
                 val search = nextText.lowercase(Locale.ROOT)
 
-                list.forEach {
+                listInvitados.forEach {
                     if (it.nombre.lowercase(Locale.ROOT).contains(search) || it.numeroMesa.contains(search)) {
                         listAux.add(it)
                     }
@@ -44,7 +44,7 @@ fun HomeFragment.initElements() = with(mBinding) {
                 tvEmpty.showView(listAux.size == 0)
             } else {
                 listAux.clear()
-                listAux.addAll(list)
+                listAux.addAll(listInvitados)
                 initRV(listAux)
                 tvEmpty.showView(listAux.size == 0)
             }
@@ -64,18 +64,18 @@ fun HomeFragment.initObserversHome() = with(mBinding) {
                 hideProgressBarCustom()
                 refresh.showView()
                 tvEmpty.showView(false)
-                list.clear()
-                list.addAll(result.data)
+                listInvitados.clear()
+                listInvitados.addAll(result.data)
 
-                tvCantidadInvitados.text = getString(R.string.total_invitados, list.size.toString())
+                tvCantidadInvitados.text = getString(R.string.total_invitados, listInvitados.size.toString())
 
-                val asistencia = list.filter { it.asistencia }
+                val asistencia = listInvitados.filter { it.asistencia }
                 tvAsistiran.text = getString(R.string.num_invitados_presentes, asistencia.size.toString())
 
-                val faltantes = list.size - asistencia.size
+                val faltantes = listInvitados.size - asistencia.size
                 tvNoAsistiran.text = getString(R.string.num_invitados_faltantes, faltantes.toString())
 
-                initRV(list)
+                initRV(listInvitados)
             }
             is MyResult.Failure -> {
                 hideProgressBarCustom()

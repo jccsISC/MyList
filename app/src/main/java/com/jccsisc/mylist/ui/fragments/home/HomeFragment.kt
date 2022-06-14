@@ -22,7 +22,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     //Intancia del VM
     val viewModel by viewModels<HomeVM> { HomeVMFactory(HomeRepoImpl(HomeDataSource())) }
     var adapter = HomeAdapter()
-    var list = mutableListOf<InvitadoModel>()
+    var listInvitados = mutableListOf<InvitadoModel>()
     var listAux = mutableListOf<InvitadoModel>()
 
     private val firebaseAuth by lazy { FirebaseAuth.getInstance() }
@@ -38,7 +38,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     fun initRV(list:List<InvitadoModel>) = with(mBinding) {
-        adapter = HomeAdapter(list)
+        adapter = HomeAdapter(listInvitados)
         rvTotalInvitados.adapter = adapter
         adapter.submitList(list.sortedBy { it.nombre })
 
