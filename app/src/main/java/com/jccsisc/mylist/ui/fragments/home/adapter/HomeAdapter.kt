@@ -63,22 +63,33 @@ class HomeAdapter(private val listInvitados: List<InvitadoModel>? = null) :
 
                         try {
                             if (index <= 3) {
-                                primer += "${invitado.nombre.substring(0, 25)}\n"
+                                primer += if (nombre.size > 4) {
+                                    "${nombre[0]} ${nombre[1]} ${nombre[2]} ${nombre[3]} \n"
+                                } else {
+                                    "${nombre[0]} ${nombre[1]} ${nombre[2]}\n"
+                                }
                             } else {
-                                segundo += "${invitado.nombre.substring(0, 24)}\n"
+                                segundo += if (nombre.size > 4) {
+                                    "${nombre[0]} ${nombre[1]} ${nombre[2]} ${nombre[3]}\n"
+                                } else {
+                                    "${nombre[0]} ${nombre[1]} ${nombre[2]}\n"
+                                }
                             }
                         } catch (e: Exception) {
                             if (index <= 3) {
-                                primer += "${invitado.nombre}\n"
+                                primer += "${invitadoModel.nombre}\n"
                             } else {
-                                segundo += "${invitado.nombre}\n"
+                                segundo += "${invitadoModel.nombre}\n"
                             }
                         }
+                        this.listAcompañantes = listAc
                     }
                 }
                 tvAcompanantes.text = primer
                 tvAcompanantes2.text = segundo
             }
+
+
 
             cardInvitados.animation =
                 AnimationUtils.loadAnimation(root.context, R.anim.slide_in_left)

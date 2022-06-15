@@ -1,5 +1,9 @@
 package com.jccsisc.mylist.data.model.invitado
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class InvitadoModel(
     val id: String = "",
     val nombre: String = "",
@@ -12,5 +16,6 @@ data class InvitadoModel(
     var asistencia: Boolean = false,
     val esPadrinoDe: String = "",
     val invitadoAdicional: Boolean = false,
-    val cantInvitadosAdicionales: Int = 0
-)
+    val cantInvitadosAdicionales: Int = 0,
+    var listAcompañantes: List<InvitadoModel>? = null
+) : Parcelable

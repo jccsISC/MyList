@@ -14,7 +14,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardInvitados"
             android:layout_width="0dp"
-            android:layout_height="120dp"
+            android:layout_height="124dp"
             app:cardCornerRadius="16dp"
             android:clickable="true"
             android:layout_marginTop="10dp"
@@ -34,7 +34,7 @@
 
                 <com.tistory.zladnrms.roundablelayout.RoundableLayout
                     android:id="@+id/roundableNumMesa"
-                    android:layout_width="75dp"
+                    android:layout_width="65dp"
                     android:layout_height="0dp"
                     app:cornerLeftTop="6dp"
                     app:cornerLeftBottom="6dp"
@@ -51,6 +51,7 @@
                         android:gravity="center"
                         android:textColor="@color/white"
                         android:textStyle="bold"
+                        android:fontFamily="serif-monospace"
                         android:textSize="40sp"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -69,6 +70,7 @@
                     android:paddingTop="2dp"
                     android:gravity="center"
                     android:paddingEnd="4dp"
+                    android:fontFamily="serif-monospace"
                     android:paddingBottom="2dp"
                     android:text="@string/table"
                     android:textColor="@color/gray_view"
@@ -88,6 +90,7 @@
                     android:ellipsize="end"
                     android:lines="1"
                     android:textSize="18sp"
+                    android:fontFamily="sans-serif-condensed"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@id/cbAsistencia"
                     app:layout_constraintStart_toEndOf="@+id/roundableNumMesa"
@@ -120,25 +123,28 @@
                         android:layout_height="match_parent"
                         android:layout_weight="0.5"
                         android:layout_marginTop="18dp"
-                        android:autoSizeTextType="uniform"
+                        android:fontFamily="sans-serif-condensed"
                         android:textSize="12sp"
+                        android:lineSpacingExtra="5dp"
                         android:ellipsize="end"
                         tools:text="Juan Francisco Rodriguez Beltran\nLuis Rodriguez\nMamá de Juan" />
                     <View
                         android:id="@+id/view"
                         android:layout_width="1dp"
-                        android:layout_height="30dp"
+                        android:layout_height="40dp"
+                        android:layout_marginHorizontal="6dp"
                         android:background="@color/rosa_lite"
-                        android:layout_marginTop="12dp"/>
+                        android:layout_marginTop="22dp"/>
                     <TextView
                         android:id="@+id/tvAcompanantes2"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.5"
                         android:layout_marginTop="5dp"
+                        android:fontFamily="sans-serif-condensed"
                         android:textSize="12sp"
+                        android:lineSpacingExtra="4dp"
                         android:layout_marginEnd="2dp"
-                        android:autoSizeTextType="uniform"
                         android:ellipsize="end"
                         tools:text="Papá de Juan Francisco Rodriguez Beltran\nTía de Juan\nMari esposa Juan" />
                 </LinearLayout>

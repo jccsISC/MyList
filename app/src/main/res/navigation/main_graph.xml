@@ -36,7 +36,11 @@
         android:id="@+id/detailFragment"
         android:name="com.jccsisc.mylist.ui.fragments.detail.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="invitadoModel"
+            app:argType="com.jccsisc.mylist.data.model.invitado.InvitadoModel" />
+    </fragment>
     <fragment
         android:id="@+id/addFragment"
         android:name="com.jccsisc.mylist.ui.fragments.add.AddFragment"

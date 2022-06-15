@@ -1,20 +1,18 @@
 package com.jccsisc.mylist.ui.fragments.detail
 
-import android.os.Bundle
-import android.view.View
-import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.jccsisc.mylist.R
+import com.jccsisc.mylist.common.base.BaseFragment
 import com.jccsisc.mylist.databinding.FragmentDetailBinding
 
 
-class DetailFragment : Fragment(R.layout.fragment_detail) {
+class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
-    lateinit var mBinding: FragmentDetailBinding
+    val args by navArgs<DetailFragmentArgs>()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        mBinding = FragmentDetailBinding.bind(view)
-        super.onViewCreated(mBinding.root, savedInstanceState)
+    override fun getLayout() = R.layout.fragment_detail
 
+    override fun initView() {
         initElements()
     }
 

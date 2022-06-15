@@ -43,7 +43,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         adapter.submitList(list.sortedBy { it.nombre })
 
         adapter.onClickItem = {
-            findNavController().navigate(R.id.action_homeFragment_to_detailFragment)
+            val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(it)
+            findNavController().navigate(action)
         }
 
         adapter.onAsistenciaClickListener = {
