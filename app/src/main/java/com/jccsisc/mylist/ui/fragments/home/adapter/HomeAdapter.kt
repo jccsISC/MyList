@@ -11,6 +11,7 @@ import com.jccsisc.mylist.R
 import com.jccsisc.mylist.databinding.ItemInvitadosV2Binding
 import com.jccsisc.mylist.data.model.invitado.InvitadoModel
 import com.jccsisc.mylist.utils.setOnSingleClickListener
+import java.lang.Exception
 
 class HomeAdapter(private val listInvitados: List<InvitadoModel>? = null) :
     ListAdapter<InvitadoModel, HomeAdapter.HomeViewHolder>(DiffCallbackHome) {
@@ -53,19 +54,25 @@ class HomeAdapter(private val listInvitados: List<InvitadoModel>? = null) :
                 cbAsistencia.isChecked = asistencia
                 tvNombre.text = nombre
 
-                val listAc =
-                    listInvitados?.filter { it.nombre != nombre && it.numeroMesa == numeroMesa }
+                val listAc = listInvitados?.filter { it.nombre != nombre && it.numeroMesa == numeroMesa }
                 var primer = ""
                 var segundo = ""
                 listAc?.let { lista ->
                     for ((index, invitado) in lista.withIndex()) {
-
                         val nombre = invitado.nombre.split(" ")
 
-                        if (index <= 3) {
-                            primer += "${nombre[0]} ${nombre[1]}\n"
-                        } else {
-                            segundo += "${nombre[0]} ${nombre[1]}\n"
+                        try {
+                            if (index <= 3) {
+                                primer += "${invitado.nombre.substring(0, 25)}\n"
+                            } else {
+                                segundo += "${invitado.nombre.substring(0, 24)}\n"
+                            }
+                        } catch (e: Exception) {
+                            if (index <= 3) {
+                                primer += "${invitado.nombre}\n"
+                            } else {
+                                segundo += "${invitado.nombre}\n"
+                            }
                         }
                     }
                 }

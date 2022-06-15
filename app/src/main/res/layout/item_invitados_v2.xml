@@ -35,12 +35,9 @@
                 <com.tistory.zladnrms.roundablelayout.RoundableLayout
                     android:id="@+id/roundableNumMesa"
                     android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    android:layout_marginStart="4dp"
+                    android:layout_height="0dp"
                     app:cornerLeftTop="6dp"
-                    app:cornerRightTop="6dp"
                     app:cornerLeftBottom="6dp"
-                    app:cornerRightBottom="6dp"
                     app:backgroundColor="@color/primary_color_dark"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -63,38 +60,39 @@
 
                 <TextView
                     android:id="@+id/tvMesa"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:paddingTop="2dp"
-                    android:paddingBottom="2dp"
-                    android:paddingStart="4dp"
-                    android:paddingEnd="4dp"
-                    android:textColor="@color/gray_view"
+                    android:layout_marginTop="-5dp"
                     android:background="@drawable/shape_amigo"
                     android:paddingHorizontal="5dp"
-                    android:layout_marginTop="-5dp"
+                    android:paddingStart="4dp"
+                    android:paddingTop="2dp"
+                    android:gravity="center"
+                    android:paddingEnd="4dp"
+                    android:paddingBottom="2dp"
                     android:text="@string/table"
-                    app:layout_constraintTop_toTopOf="@+id/roundableNumMesa"
+                    android:textColor="@color/gray_view"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/roundableNumMesa"
                     app:layout_constraintStart_toStartOf="@+id/roundableNumMesa"
-                    app:layout_constraintEnd_toEndOf="@+id/roundableNumMesa"/>
+                    app:layout_constraintTop_toTopOf="@+id/roundableNumMesa"
+                    app:layout_constraintVertical_bias="0.0001" />
 
                 <TextView
                     android:id="@+id/tvNombre"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:ellipsize="end"
+                    android:lines="1"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:lines="1"
-                    android:ellipsize="end"
-                    android:autoSizeTextType="uniform"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginStart="7dp"
-                    tools:text="Juan Francisco Rodriguez Beltran"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/cbAsistencia"
                     app:layout_constraintStart_toEndOf="@+id/roundableNumMesa"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Juan Francisco Rodriguez Beltran" />
 
                 <TextView
                     android:id="@+id/tvAcompanado"
@@ -108,45 +106,42 @@
                     app:layout_constraintVertical_bias="0.0"
                     android:text="Acompañado de:" />
 
-                <TextView
-                    android:id="@+id/tvAcompanantes"
-                    android:layout_width="162dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="4dp"
-                    android:autoSizeTextType="uniform"
-                    android:textSize="12sp"
-                    android:ellipsize="end"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/view"
-                    app:layout_constraintStart_toStartOf="@+id/tvNombre"
-                    app:layout_constraintTop_toBottomOf="@+id/tvAcompanado"
-                    app:layout_constraintVertical_bias="0.0"
-                    tools:text="Juan Francisco Rodriguez Beltran\nLuis Rodriguez\nMamá de Juan" />
-                <View
-                    android:id="@+id/view"
-                    android:layout_width="1dp"
-                    android:layout_height="30dp"
-                    android:background="@color/rosa_lite"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginStart="4dp"
-                    app:layout_constraintTop_toTopOf="@+id/tvAcompanantes"
-                    app:layout_constraintStart_toEndOf="@id/tvAcompanantes"/>
-
-                <TextView
-                    android:id="@+id/tvAcompanantes2"
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginEnd="3dp"
-                    android:autoSizeTextType="uniform"
-                    android:ellipsize="end"
-                    app:layout_constraintBottom_toBottomOf="@+id/tvAcompanantes"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toTopOf="@+id/tvAcompanado"
+                    app:layout_constraintStart_toStartOf="@+id/tvAcompanado"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@id/view"
-                    app:layout_constraintTop_toTopOf="@+id/tvAcompanantes"
-                    tools:text="Papá de Juan Francisco Rodriguez Beltran\nTía de Juan\nMari esposa Juan" />
+                    app:layout_constraintBottom_toBottomOf="parent">
+                    <TextView
+                        android:id="@+id/tvAcompanantes"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:layout_marginTop="18dp"
+                        android:autoSizeTextType="uniform"
+                        android:textSize="12sp"
+                        android:ellipsize="end"
+                        tools:text="Juan Francisco Rodriguez Beltran\nLuis Rodriguez\nMamá de Juan" />
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="1dp"
+                        android:layout_height="30dp"
+                        android:background="@color/rosa_lite"
+                        android:layout_marginTop="12dp"/>
+                    <TextView
+                        android:id="@+id/tvAcompanantes2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:layout_marginTop="5dp"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="2dp"
+                        android:autoSizeTextType="uniform"
+                        android:ellipsize="end"
+                        tools:text="Papá de Juan Francisco Rodriguez Beltran\nTía de Juan\nMari esposa Juan" />
+                </LinearLayout>
 
                 <CheckBox
                     android:id="@+id/cbAsistencia"
@@ -155,7 +150,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.32999998" />
+                    app:layout_constraintVertical_bias="0.01999998" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
