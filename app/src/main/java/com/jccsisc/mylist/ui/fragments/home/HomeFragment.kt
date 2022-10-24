@@ -48,7 +48,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
 
         adapter.onAsistenciaClickListener = {
-               viewModel.registerAsistencia(it).observe(viewLifecycleOwner) { result->
+               /*viewModel.registerAsistencia(it).observe(viewLifecycleOwner) { result->
                    when (result) {
                        is MyResult.Success -> {
                            viewModel.fetchInvitadosList()
@@ -57,7 +57,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                            showToast("Ocurrió un problema: ${result.exception}")
                        }
                    }
-               }
+               }*/
+
+
         }
     }
 

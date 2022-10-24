@@ -8,10 +8,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jccsisc.mylist.R
-import com.jccsisc.mylist.databinding.ItemInvitadosV2Binding
 import com.jccsisc.mylist.data.model.invitado.InvitadoModel
+import com.jccsisc.mylist.databinding.ItemInvitadosV2Binding
 import com.jccsisc.mylist.utils.setOnSingleClickListener
-import java.lang.Exception
+import java.util.*
 
 class HomeAdapter(private val listInvitados: List<InvitadoModel>? = null) :
     ListAdapter<InvitadoModel, HomeAdapter.HomeViewHolder>(DiffCallbackHome) {
@@ -38,13 +38,13 @@ class HomeAdapter(private val listInvitados: List<InvitadoModel>? = null) :
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         val invitadoModel = getItem(position)
-        holder.bind(invitadoModel)
+        holder.bind(invitadoModel, position)
     }
 
 
     inner class HomeViewHolder(private val mBinding: ItemInvitadosV2Binding) :
         RecyclerView.ViewHolder(mBinding.root) {
-        fun bind(invitadoModel: InvitadoModel) = with(mBinding) {
+        fun bind(invitadoModel: InvitadoModel, position: Int) = with(mBinding) {
 
             invitadoModel.apply {
                 //tvParentezco.text = if (parentezcp == 0) "Familiar" else "Amigo"
@@ -106,11 +106,23 @@ class HomeAdapter(private val listInvitados: List<InvitadoModel>? = null) :
                 if (::onAsistenciaClickListener.isInitialized) {
                     invitadoModel.asistencia = cbAsistencia.isChecked
                     onAsistenciaClickListener(invitadoModel)
+
+                    if (invitadoModel.asistencia) {
+                        swapeItem(position, listInvitados!!.size -1)
+                    } else {
+                        swapeItem(listInvitados!!.size -1, 0)
+                    }
+
                 } else {
                     Log.e("error", "onClickItem no está inicializado")
                 }
             }
 
         }
+    }
+
+    fun swapeItem(fromPosition: Int, toPosition: Int) {
+        Collections.swap(listInvitados, fromPosition, toPosition)
+        notifyItemMoved(fromPosition, toPosition)
     }
 }
