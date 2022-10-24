@@ -17,5 +17,5 @@ data class InvitadoModel(
     val esPadrinoDe: String = "",
     val invitadoAdicional: Boolean = false,
     val cantInvitadosAdicionales: Int = 0,
-    var listAcompañantes: List<InvitadoModel>? = null
+    var listAcompaniantes: List<InvitadoModel>? = null
 ) : Parcelable

@@ -29,7 +29,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun getLayout() = R.layout.fragment_home
 
-    override fun initObservers() = with(mBinding) {
+    override fun initObservers() {
         initObserversHome()
     }
 
@@ -37,9 +37,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         initElements()
     }
 
-    fun initRV(list:List<InvitadoModel>) = with(mBinding) {
+    fun initRV(list:List<InvitadoModel>) {
         adapter = HomeAdapter(listInvitados)
-        rvTotalInvitados.adapter = adapter
+        mBinding.rvTotalInvitados.adapter = adapter
         adapter.submitList(list.sortedBy { it.nombre })
 
         adapter.onClickItem = {

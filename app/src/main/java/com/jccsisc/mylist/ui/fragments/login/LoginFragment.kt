@@ -25,12 +25,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
     override fun getLayout() = R.layout.fragment_login
 
-    override fun initObservers() {  }
-
     override fun initView() { initElements() }
 
     fun validCredentials(correo: String, contra: String): Boolean {
-        with(mBinding) {
+        mBinding.apply {
 
             if (correo.isEmpty()) {
                 tieEmail.error = "El correo está vacío"
@@ -46,7 +44,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         return false
     }
 
-    fun login(email: String, password: String) = with(mBinding) {
+    fun login(email: String, password: String) {
         viewModel.loginVM(email, password).observe(viewLifecycleOwner) { result ->
             when(result) {
                 is MyResult.Loading -> showProgress()

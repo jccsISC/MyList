@@ -39,22 +39,22 @@ class DetailAdapter : ListAdapter<InvitadoModel, DetailAdapter.DetailViewHolder>
 
     inner class DetailViewHolder(private val mBinding: ItemInvitadoBinding) :
         RecyclerView.ViewHolder(mBinding.root) {
-        fun bind(invitadoModel: InvitadoModel) = with(mBinding) {
+        fun bind(invitadoModel: InvitadoModel) {
+            mBinding.apply {
+                invitadoModel.apply {
+                    tvItemName.text = nombre
+                    cbAsistencia.isChecked = asistencia
+                }
 
-            invitadoModel.apply {
-                tvItemName.text = nombre
-                cbAsistencia.isChecked = asistencia
-            }
-
-            cbAsistencia.setOnSingleClickListener {
-                if (::onAsistenciaClickListener.isInitialized) {
-                    invitadoModel.asistencia = cbAsistencia.isChecked
-                    onAsistenciaClickListener(invitadoModel)
-                } else {
-                    Log.e("error", "onClickItem no está inicializado")
+                cbAsistencia.setOnSingleClickListener {
+                    if (::onAsistenciaClickListener.isInitialized) {
+                        invitadoModel.asistencia = cbAsistencia.isChecked
+                        onAsistenciaClickListener(invitadoModel)
+                    } else {
+                        Log.e("error", "onClickItem no está inicializado")
+                    }
                 }
             }
-
         }
     }
 }

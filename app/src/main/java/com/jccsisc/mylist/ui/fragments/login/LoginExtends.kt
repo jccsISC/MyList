@@ -6,15 +6,17 @@ import com.jccsisc.mylist.ui.activities.home.HomeActivity
 import com.jccsisc.mylist.utils.goToActivity
 import com.jccsisc.mylist.utils.setOnSingleClickListener
 
-fun LoginFragment.initElements() = with(mBinding) {
+fun LoginFragment.initElements() {
+    mBinding.apply {
 
-    btnBack.setOnSingleClickListener { findNavController().popBackStack() }
+        btnBack.setOnSingleClickListener { findNavController().popBackStack() }
 
-    btnLogin.setOnSingleClickListener {
-        val correo = tieEmail.text.toString().trim()
-        val contra = tiePws.text.toString().trim()
+        btnLogin.setOnSingleClickListener {
+            val correo = tieEmail.text.toString().trim()
+            val contra = tiePws.text.toString().trim()
 
-        if (validCredentials(correo, contra)) return@setOnSingleClickListener
-        login(correo, contra)
+            if (validCredentials(correo, contra)) return@setOnSingleClickListener
+            login(correo, contra)
+        }
     }
 }

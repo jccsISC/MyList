@@ -8,7 +8,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
 
     override fun getLayout() = R.layout.activity_login
 
-    override fun initView() = with(mBinding) {
+    override fun initView() {
+        mBinding.apply {
 
+        }
     }
 }

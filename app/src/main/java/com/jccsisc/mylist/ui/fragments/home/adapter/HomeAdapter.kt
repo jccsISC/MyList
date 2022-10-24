@@ -44,80 +44,82 @@ class HomeAdapter(private val listInvitados: List<InvitadoModel>? = null) :
 
     inner class HomeViewHolder(private val mBinding: ItemInvitadosV2Binding) :
         RecyclerView.ViewHolder(mBinding.root) {
-        fun bind(invitadoModel: InvitadoModel, position: Int) = with(mBinding) {
+        fun bind(invitadoModel: InvitadoModel, position: Int) {
+            mBinding.apply {
+                invitadoModel.apply {
+                    //tvParentezco.text = if (parentezcp == 0) "Familiar" else "Amigo"
+                    //tvParentezco.setBackgroundResource(if (parentezcp == 0) R.drawable.shape_familiar else R.drawable.shape_amigo)
+                    //imgRole.setImageResource(if (role == 0) R.drawable.ic_p else R.drawable.ic_i)
+                    tvNumMesa.text = numeroMesa
+                    cbAsistencia.isChecked = asistencia
+                    tvNombre.text = nombre
 
-            invitadoModel.apply {
-                //tvParentezco.text = if (parentezcp == 0) "Familiar" else "Amigo"
-                //tvParentezco.setBackgroundResource(if (parentezcp == 0) R.drawable.shape_familiar else R.drawable.shape_amigo)
-                //imgRole.setImageResource(if (role == 0) R.drawable.ic_p else R.drawable.ic_i)
-                tvNumMesa.text = numeroMesa
-                cbAsistencia.isChecked = asistencia
-                tvNombre.text = nombre
+                    val listAc =
+                        listInvitados?.filter { it.nombre != nombre && it.numeroMesa == numeroMesa }
+                    var primer = ""
+                    var segundo = ""
+                    listAc?.let { lista ->
+                        for ((index, invitado) in lista.withIndex()) {
+                            val nombre = invitado.nombre.split(" ")
 
-                val listAc = listInvitados?.filter { it.nombre != nombre && it.numeroMesa == numeroMesa }
-                var primer = ""
-                var segundo = ""
-                listAc?.let { lista ->
-                    for ((index, invitado) in lista.withIndex()) {
-                        val nombre = invitado.nombre.split(" ")
-
-                        try {
-                            if (index <= 3) {
-                                primer += if (nombre.size > 4) {
-                                    "${nombre[0]} ${nombre[1]} ${nombre[2]} ${nombre[3]} \n"
+                            try {
+                                if (index <= 3) {
+                                    primer += if (nombre.size > 4) {
+                                        "${nombre[0]} ${nombre[1]} ${nombre[2]} ${nombre[3]} \n"
+                                    } else {
+                                        "${nombre[0]} ${nombre[1]} ${nombre[2]}\n"
+                                    }
                                 } else {
-                                    "${nombre[0]} ${nombre[1]} ${nombre[2]}\n"
+                                    segundo += if (nombre.size > 4) {
+                                        "${nombre[0]} ${nombre[1]} ${nombre[2]} ${nombre[3]}\n"
+                                    } else {
+                                        "${nombre[0]} ${nombre[1]} ${nombre[2]}\n"
+                                    }
                                 }
-                            } else {
-                                segundo += if (nombre.size > 4) {
-                                    "${nombre[0]} ${nombre[1]} ${nombre[2]} ${nombre[3]}\n"
+                            } catch (e: Exception) {
+                                if (index <= 3) {
+                                    primer += "${invitadoModel.nombre}\n"
                                 } else {
-                                    "${nombre[0]} ${nombre[1]} ${nombre[2]}\n"
+                                    segundo += "${invitadoModel.nombre}\n"
                                 }
                             }
-                        } catch (e: Exception) {
-                            if (index <= 3) {
-                                primer += "${invitadoModel.nombre}\n"
-                            } else {
-                                segundo += "${invitadoModel.nombre}\n"
-                            }
+                            this.listAcompaniantes = listAc
                         }
-                        this.listAcompañantes = listAc
                     }
+                    tvAcompanantes.text = primer
+                    tvAcompanantes2.text = segundo
                 }
-                tvAcompanantes.text = primer
-                tvAcompanantes2.text = segundo
-            }
 
 
 
-            cardInvitados.animation =
-                AnimationUtils.loadAnimation(root.context, R.anim.slide_in_left)
+                cardInvitados.animation =
+                    AnimationUtils.loadAnimation(root.context, R.anim.slide_in_left)
 
-            cardInvitados.setOnClickListener {
-                if (::onClickItem.isInitialized) {
-                    onClickItem(invitadoModel)
-                } else {
-                    Log.e("error", "onClickItem no está inicializado")
-                }
-            }
-
-            cbAsistencia.setOnSingleClickListener {
-                if (::onAsistenciaClickListener.isInitialized) {
-                    invitadoModel.asistencia = cbAsistencia.isChecked
-                    onAsistenciaClickListener(invitadoModel)
-
-                    if (invitadoModel.asistencia) {
-                        swapeItem(position, listInvitados!!.size -1)
+                cardInvitados.setOnClickListener {
+                    if (::onClickItem.isInitialized) {
+                        onClickItem(invitadoModel)
                     } else {
-                        swapeItem(listInvitados!!.size -1, 0)
+                        Log.e("error", "onClickItem no está inicializado")
                     }
-
-                } else {
-                    Log.e("error", "onClickItem no está inicializado")
                 }
-            }
 
+                cbAsistencia.setOnSingleClickListener {
+                    if (::onAsistenciaClickListener.isInitialized) {
+                        invitadoModel.asistencia = cbAsistencia.isChecked
+                        onAsistenciaClickListener(invitadoModel)
+
+                        if (invitadoModel.asistencia) {
+                            swapeItem(position, listInvitados!!.size - 1)
+                        } else {
+                            swapeItem(listInvitados!!.size - 1, 0)
+                        }
+
+                    } else {
+                        Log.e("error", "onClickItem no está inicializado")
+                    }
+                }
+
+            }
         }
     }
 

@@ -26,7 +26,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         tvY.animation = AnimationUtils.loadAnimation(this@SplashActivity, R.anim.slide_in_left_2)
         tvJulio.animation = AnimationUtils.loadAnimation(this@SplashActivity, R.anim.slide_down)
 
-        Handler(Looper.getMainLooper()).postDelayed(Runnable {
+        Handler(Looper.getMainLooper()).postDelayed({
             goToActivity<LoginActivity>()
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             finish()
